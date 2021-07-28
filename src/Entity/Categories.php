@@ -26,7 +26,7 @@ class Categories
     private $name;
 
     /**
-     * @Gedmo\slug(fields={"name"})
+     * @Gedmo\Slug(fields={"name"})
      * @ORM\Column(type="string", length=255)
      */
     private $slug;
@@ -50,6 +50,11 @@ class Categories
     {
         $this->categories = new ArrayCollection();
         $this->annonces = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 
     public function getId(): ?int
